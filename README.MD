@@ -1,0 +1,1 @@
+## Liverpool Materials repository for LLMs for Materials and Chemistry Hackaton 2024
