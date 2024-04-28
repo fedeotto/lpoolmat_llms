@@ -1,0 +1,41 @@
+#General Params
+bench_type: id
+expname: ${data.name}-${model.llm.name}-${model.agg_type}-${bench_type}
+
+# Additional (optional) metadata specialised for each experiment
+core:
+  version: 0.0.1
+  tags:
+    - ${now:%Y-%m-%d}
+
+hydra:
+  mode: MULTIRUN
+  # run:
+  #   dir: hydra/singlerun/${now:%Y-%m-%d}--${now:%H-%M-%S}/${expname}/
+  sweep:
+    dir: ${oc.env:HYDRA_JOBS}/multirun/${now:%Y-%m-%d}--${now:%H-%M-%S}
+    subdir: ${expname}/${random_state}
+
+  job:
+    env_set:
+      WANDB_START_METHOD: thread
+      WANDB_DIR: ${oc.env:WABDB_DIR}
+
+  sweeper:
+    params:
+      +model: roost
+      # +data: matbench_log10(G_VRH)
+      ++bench_type: id
+      ++model.agg_type: none
+      ++random_state: 0,1,2
+
+defaults:
+  - data: matbench_dielectric
+  - logging: default
+  # - model: llmroost
+  - optim: default
+  - train: default
+  # - optim: default
+  # - train: default
+#    Decomment this parameter to get parallel job running
+  # - override hydra/launcher: joblib
