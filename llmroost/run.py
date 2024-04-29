@@ -1,4 +1,3 @@
-'''author: fedeotto'''
 import hydra
 from omegaconf import DictConfig, OmegaConf
 from pathlib import Path
