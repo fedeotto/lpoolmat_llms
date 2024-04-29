@@ -1,3 +1,9 @@
+"""
+Created on Thu Apr 18 14:15:13 2024
+
+@author: federico
+"""
+
 import hydra
 from omegaconf import DictConfig, OmegaConf
 from pathlib import Path
@@ -72,7 +78,7 @@ def run(cfg: DictConfig):
                         gradient_clip_val=cfg.train.pl_trainer.gradient_clip_val,
                         gradient_clip_algorithm=cfg.train.pl_trainer.gradient_clip_algorithm,
                         callbacks=[ModelCheckpoint(monitor=cfg.train.monitor_metric,
-                                                    dirpath=hydra_dir/ hydra_subdir,
+                                                    dirpath=hydra_dir / hydra_subdir,
                                                     save_top_k=1,
                                                     mode='min',
                                                     filename=name),

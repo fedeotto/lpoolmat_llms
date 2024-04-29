@@ -1,5 +1,4 @@
 optimizer:
-  #  Adam-oriented deep learning
   _target_: torch.optim.Adam
   lr: 3.0e-4
   # betas: [ 0.9, 0.999 ]
