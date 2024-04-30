@@ -1,3 +1,8 @@
+'''
+Original Roost model: https://github.com/CompRhys/roost
+Used reimplementation via torch_geometric/pytorch_lightning: https://github.com/epatyukova/Modified_Roost
+'''
+
 from torch.nn.init import zeros_, calculate_gain, xavier_uniform_
 import torch.nn as nn
 import torch
