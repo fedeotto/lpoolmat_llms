@@ -73,7 +73,7 @@ def extract_data(df_path: str,
         model=model_id,
         model_kwargs={"torch_dtype": torch.float16},
         device_map="auto",
-        token='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')
+        token='your_own_token')
     
     if section == 'Conclusion':
         prompt = "Summarize: what are the conclusions?"
