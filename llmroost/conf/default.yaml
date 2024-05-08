@@ -23,14 +23,14 @@ hydra:
 
   sweeper:
     params:
-      +model: roost
+      +model: llmroost
       # +data: matbench_log10(G_VRH)
       ++bench_type: id
-      ++model.agg_type: none
+      ++model.agg_type: sum,concat
       ++random_state: 0,1,2
 
 defaults:
-  - data: matbench_dielectric
+  - data: LiIon_roomtemp
   - logging: default
   # - model: llmroost
   - optim: default
