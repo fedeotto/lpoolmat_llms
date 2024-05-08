@@ -1,5 +1,5 @@
-name: LiIon_roomtemp
-desc: thermal conductivity at room temperature
+name: thermalcond
+desc: log10 thermal conductivity at room temperature
 
 num_workers:
   train: 0
