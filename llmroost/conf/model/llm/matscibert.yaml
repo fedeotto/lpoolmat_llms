@@ -1,0 +1,10 @@
+name: matscibert
+emb_dim: 768
+type:
+  _target_: transformers.AutoModel.from_pretrained
+  pretrained_model_name_or_path: m3rg-iitd/matscibert
+  output_hidden_states: True
+
+tokenizer:
+  _target_: transformers.AutoTokenizer.from_pretrained
+  pretrained_model_name_or_path: m3rg-iitd/matscibert
