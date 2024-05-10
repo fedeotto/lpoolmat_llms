@@ -17,7 +17,7 @@ class DataModule(pl.LightningDataModule):
                  df_train=None,
                  df_val=None,
                  df_test=None,
-                 desc : str='' ,
+                #  desc : str='' ,
                  K: int = 5,
                  elem_prop : str = 'mat2vec',
                  batch_size=32,
@@ -31,24 +31,21 @@ class DataModule(pl.LightningDataModule):
         self.df_val        = df_val
         self.df_test       = df_test
         self.batch_size    = batch_size
-        self.desc          = desc
+        # self.desc          = desc
         self.K             = K
         self.lookup        = pd.read_csv('assets/lookup_table_elmd_liion.csv',index_col=0)
 
     def setup(self, stage=None):
         if stage == 'fit' or stage is None:
             self.train_dataset = create_dataset(self.df_train, 
-                                                elem_attrs=self.elem_prop,
-                                                desc=self.desc)
+                                                elem_attrs=self.elem_prop)
             
             self.val_dataset   = create_dataset(self.df_val, 
-                                                elem_attrs=self.elem_prop,
-                                                desc=self.desc)
+                                                elem_attrs=self.elem_prop)
         
         if stage == 'test' or stage is None:
             self.test_dataset = create_dataset(self.df_test,
-                                               elem_attrs=self.elem_prop,
-                                               desc=self.desc)
+                                               elem_attrs=self.elem_prop)
 
     def prepare_data(self) -> None:
         pass
@@ -65,7 +62,7 @@ class DataModule(pl.LightningDataModule):
     def test_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.batch_size.test, shuffle=False)
 
-def create_dataset(df, elem_attrs,desc):
+def create_dataset(df, elem_attrs):
     """
     Create a dataset from a dataframe.
     """

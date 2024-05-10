@@ -11,6 +11,6 @@ batch_size:
 
 datamodule:
   _target_: assets.datamodule.DataModule
-  desc: ${data.desc}
+  # desc: ${data.desc}
   random_state: ${random_state}
   batch_size: ${data.batch_size}

@@ -56,7 +56,8 @@ class LLMRoost(BaseModule):
 
         self.resnet        = hydra.utils.instantiate(self.hparams.model.resnet, _recursive_=False)
         self.criterion     = nn.L1Loss()
-
+        
+        #projection head to match Roost emb_dim
         self.projection    = nn.Sequential(nn.Linear(self.hparams.model.llm.emb_dim, self.hparams.model.llm.emb_dim//2),
                                         nn.ReLU(),
                                         nn.Linear(self.hparams.model.llm.emb_dim//2, self.hparams.model.llm.emb_dim//4),
@@ -102,7 +103,7 @@ class LLMRoost(BaseModule):
         embeds    = torch.cat([embeds, batch.weights], dim=1)
         encodings = self.encoder(embeds, batch.edge_index, batch.weights.squeeze(-1), batch_index=batch.batch)
 
-        #Normalizing encodings
+        #Normalizing roost encodings
         encodings = F.normalize(encodings, dim=1, p=2)
 
         #normalizing llm embeddings

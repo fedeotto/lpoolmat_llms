@@ -41,20 +41,11 @@ def create_bench(df            : pd.DataFrame,
     val_size   = int(len(df)*0.1)
     test_size  = int(len(df)*0.2)
 
-    if bench_type == 'id':
-        df_train = df.sample(n=train_size, random_state=random_state)
-        df = df.drop(index=df_train.index)
-        df_val   = df.sample(n=val_size, random_state=random_state)
-        df = df.drop(index=df_val.index)
-        df_test  = df.sample(n=test_size, random_state=random_state)
-    
-    #density score not depending on seed.
-    elif bench_type == 'ood':
-        df = df.sort_values(by='dens',ascending=False)
-        df = df.drop('dens', axis=1)
-        df_train = df.iloc[:train_size]
-        df_val   = df.iloc[train_size:train_size+val_size]
-        df_test  = df.iloc[train_size+val_size:]
+    df_train = df.sample(n=train_size, random_state=random_state)
+    df = df.drop(index=df_train.index)
+    df_val   = df.sample(n=val_size, random_state=random_state)
+    df = df.drop(index=df_val.index)
+    df_test  = df.sample(n=test_size, random_state=random_state)
 
     assert set(df_train['formula']) & set(df_val['formula']) & set(df_test['formula']) == set(), 'Found same points in both train and val/test sets!'
 

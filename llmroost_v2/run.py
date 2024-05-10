@@ -12,9 +12,10 @@ from assets.datamodule import DataModule
 from hydra.core.hydra_config import HydraConfig
 from assets.model import LLMRoost, Roost
 import pytorch_lightning as pl
-# from common.utils import load_envs
+from common.load_envs import load_envs
 from pytorch_lightning.loggers import WandbLogger
 import numpy as np
+import dotenv
 import torch
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping, LearningRateMonitor
 
