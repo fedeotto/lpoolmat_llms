@@ -22,7 +22,6 @@ os.environ["HYDRA_FULL_ERROR"] = '1'
 
 @hydra.main(config_path="conf", config_name="default")
 def run(cfg: DictConfig):
-    os.chdir(hydra.utils.get_original_cwd())
     
     hydra_dir    = Path(HydraConfig.get().sweep.dir) #change to .run.dir for single run
     hydra_subdir = Path(HydraConfig.get().sweep.subdir)
