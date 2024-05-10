@@ -29,4 +29,4 @@ To run **LLMRoost(MatBert)**:
 python llmroost_v2/run.py +model=llmroost ++model.agg_type=sum,concat
    ```
 
-You utilize MatSciBert instead by modifying the llm name in `llmroost_v2/conf/model/llmroost.yaml` from `matbert` to `matscibert` in `defaults`.
+You can utilize **MatSciBert** instead, by modifying the corresponding llm name in `llmroost_v2/conf/model/llmroost.yaml` from `matbert` to `matscibert` in `defaults`.
