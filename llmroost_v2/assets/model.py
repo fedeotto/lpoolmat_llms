@@ -134,7 +134,7 @@ class LLMRoost(BaseModule):
 
         #Computing nearest neighbors for formulas in the validation set
         val_train_lookup = lookup.loc[val_formulas,train_formulas]
-        sorted_indices   = np.argsort(val_train_lookup, axis=1)[:,1:self.trainer.datamodule.K+1]
+        sorted_indices   = np.argsort(val_train_lookup, axis=1)[:,:self.trainer.datamodule.K]
         nbrs_2d          = np.vectorize(val_train_lookup.columns.__getitem__)(sorted_indices)
 
         all_nbrs_prompts = []
@@ -163,7 +163,7 @@ class LLMRoost(BaseModule):
 
         #Computing nearest neighbors for formulas in the test set
         test_train_lookup= lookup.loc[test_formulas,train_formulas]
-        sorted_indices   = np.argsort(test_train_lookup, axis=1)[:,1:self.trainer.datamodule.K+1]
+        sorted_indices   = np.argsort(test_train_lookup, axis=1)[:,:self.trainer.datamodule.K]
         nbrs_2d          = np.vectorize(test_train_lookup.columns.__getitem__)(sorted_indices)
 
         all_nbrs_prompts = []

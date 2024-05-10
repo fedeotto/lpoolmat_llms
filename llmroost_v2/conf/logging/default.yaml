@@ -1,13 +1,13 @@
-wandb:
-  project:  liverpool_materials_llms_hackaton_2024
-  log_model: true
-  entity:    null
-  mode:      'online'
+# wandb:
+#   project:  liverpool_materials_llms_hackaton_2024
+#   log_model: true
+#   entity:    null
+#   mode:      'online'
 
-wandb_watch:
-  log: 'all'
-  log_freq: 50
+# wandb_watch:
+#   log: 'all'
+#   log_freq: 50
 
-lr_monitor:
-  logging_interval: "step"
-  log_momentum: False
+# lr_monitor:
+#   logging_interval: "step"
+#   log_momentum: False
