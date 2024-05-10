@@ -92,7 +92,6 @@ class LLMRoost(BaseModule):
                 outputs= self.llm(**inputs)
                 lm_embeddings = outputs.hidden_states[-1]
                 lm_embeddings = lm_embeddings.mean(dim=1).mean(dim=0)
-                # lm_embeddings = lm_embeddings.mean(dim=0)
                 avg_embs.append(lm_embeddings)
             lm_embeddings = torch.vstack(avg_embs)
 
