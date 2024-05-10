@@ -12,7 +12,9 @@ This repository hosts projects developed by the Liverpool Materials team for the
 In this repository, we release the discussed **Example 2** in the report, as we believe it is the most interesting one.
 
 ### Instructions
-First, you need to download the *Lithium-ion conductors* dataset, that you can find here: http://pcwww.liv.ac.uk/~msd30/lmds/LiIonDatabase.html. You can then use `llmroost_v2/assets/liion_preprocess.ipynb` to preprocess the dataset and store it in `llmroost_v2/datasets` folder (use `LiIon_roomtemp_family.xlsx` to name it). Create a new `conda` environment using `env.yml` via:
+First, you need to download the *Lithium-ion conductors* dataset, that you can find here: http://pcwww.liv.ac.uk/~msd30/lmds/LiIonDatabase.html. You can then use `llmroost_v2/assets/liion_preprocess.ipynb` to preprocess the dataset and store it in `llmroost_v2/datasets` folder (use `LiIon_roomtemp_family.xlsx` to name it). Then, you can use `llmroost_v2/assets/lookup_table_liion.ipynb` to create a lookup table via ElM2D that will be used subsequently.
+
+Create a new `conda` environment using `env.yml` via:
    ```git
    conda env create -f env.yml
    ```
