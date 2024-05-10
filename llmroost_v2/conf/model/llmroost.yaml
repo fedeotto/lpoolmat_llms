@@ -39,4 +39,4 @@ resnet:
   batchnorm: false
 
 defaults:
-  - llm: matscibert
+  - llm: matbert

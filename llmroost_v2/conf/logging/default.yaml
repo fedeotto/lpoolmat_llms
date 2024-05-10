@@ -1,7 +1,7 @@
 wandb:
-  project:   double_check
+  project:  liverpool_materials_llms_hackaton_2024
   log_model: true
-  entity:    fedeotto
+  entity:    null
   mode:      'online'
 
 wandb_watch:
