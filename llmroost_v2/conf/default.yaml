@@ -1,0 +1,41 @@
+#General Params
+bench_type: id
+expname: ${data.name}-${model.llm.name}-${model.agg_type}-families-simd-${bench_type} #add families-(simd) just in case
+
+# Additional (optional) metadata specialised for each experiment
+core:
+  version: 0.0.1
+  tags:
+    - ${now:%Y-%m-%d}
+
+hydra:
+  mode: MULTIRUN
+  # run:
+  #   dir: hydra/singlerun/${now:%Y-%m-%d}--${now:%H-%M-%S}/${expname}/
+  sweep:
+    dir: ${oc.env:HYDRA_JOBS}/multirun/${now:%Y-%m-%d}--${now:%H-%M-%S}
+    subdir: ${expname}/${random_state}
+
+  job:
+    env_set:
+      WANDB_START_METHOD: thread
+      WANDB_DIR: ${oc.env:WABDB_DIR}
+
+  sweeper:
+    params:
+      +model: llmroost
+      # +data: matbench_log10(G_VRH)
+      ++bench_type: id
+      ++model.agg_type: sum,concat
+      ++random_state: 0,1,2
+
+defaults:
+  - data: LiIon_roomtemp_family
+  - logging: default
+  # - model: llmroost
+  - optim: default
+  - train: default
+  # - optim: default
+  # - train: default
+#    Decomment this parameter to get parallel job running
+  # - override hydra/launcher: joblib

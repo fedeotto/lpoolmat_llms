@@ -1,0 +1,13 @@
+wandb:
+  project:   double_check
+  log_model: true
+  entity:    fedeotto
+  mode:      'online'
+
+wandb_watch:
+  log: 'all'
+  log_freq: 50
+
+lr_monitor:
+  logging_interval: "step"
+  log_momentum: False
