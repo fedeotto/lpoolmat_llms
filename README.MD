@@ -7,4 +7,6 @@ This repository hosts projects developed by the Liverpool Materials team for the
 
 ![Description of the image](llmroost.png)
 
-<a href="https://www.youtube.com/watch?v=fQVjRmM-Hf4">Here</a>, you can find a concise overview of our project. 
+<a href="https://www.youtube.com/watch?v=fQVjRmM-Hf4">Here</a>, you can find a concise overview of our project. <br> <br>
+
+In this repository, we release the discussed **Example 2** in the report, as we believe it is the most interesting one. 
