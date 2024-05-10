@@ -20,11 +20,11 @@ Create a new `conda` environment using `env.yml` via:
    ```
 Rename the `.env.template` file in `llmroost_v2/` to `.env` by specifying the corresponding path directories. <br><br>
 
-To run the baseline Roost model:
+To run the baseline **Roost** model:
    ```git
    python llmroost_v2/run.py +model=roost ++model.agg_type=none
    ```
-To run LLMRoost(MatBert):
+To run **LLMRoost(MatBert)**:
    ```git
 python llmroost_v2/run.py +model=llmroost ++model.agg_type=sum,concat
    ```
